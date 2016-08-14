@@ -1,0 +1,17 @@
+/*
+!/assets
+/assets/*
+!assets/.gitignore
+!assets/.htaccess
+!assets/web.config
+!/mysite
+!/.gitignore
+!/.htaccess
+!/composer.json
+!/composer.lock
+!/favicon*
+!/index.php
+!/phpunit.xml.dist
+!/README.md
+!/web.config
+**/.DS_Store

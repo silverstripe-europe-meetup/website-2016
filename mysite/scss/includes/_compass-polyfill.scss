@@ -1,0 +1,36 @@
+@function image-height($file) {
+	@error "image-height not implemented yet";
+}
+
+@function image-width($file) {
+	@error "image-height not implemented yet";
+}
+
+@function image-url($file) {
+	@return url('/#{unquote($module)}/images/#{unquote($file)}');
+}
+
+@function font-url($file) {
+	@return url('/#{unquote($module)}/fonts/#{unquote($file)}');
+}
+
+@function font-files($list...) {
+	@error "image-height not implemented yet";
+}
+
+@function _compact($var) {
+	@if type_of($var) == 'list' {
+		$full: ();
+		@each $item in $var {
+			@if $item {
+				$full: append($full, _compact($item));
+			}
+		}
+		@return $full;
+	}
+	@return $var;
+}
+
+@function compact($var-1, $var-2: false, $var-3: false, $var-4: false, $var-5: false, $var-6: false, $var-7: false, $var-8: false, $var-9: false, $var-10: false) {
+	@return _compact(($var-1, $var-2, $var-3, $var-4, $var-5, $var-6, $var-7, $var-8, $var-9, $var-10));
+}

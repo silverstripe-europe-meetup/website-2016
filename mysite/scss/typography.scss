@@ -1,0 +1,190 @@
+@import "config";
+
+@include custom-font('SourceSansPro', 'SourceSansPro/SourceSansPro', (400, 700));
+
+body, .typography {
+	@include rem((font-size: $font-size));
+
+	p {
+		@include rem((
+				line-height: $line-height,
+				margin: 0 0 $line-height,
+		));
+	}
+	blockquote {
+		margin: 10px;
+		font-size: 1.4em;
+		color: #777;
+		font-style: italic;
+	}
+	q {
+		display: block;
+		font-size: 0.8em;
+		margin: 1em 1em;
+		padding: 0.5em;
+		border: 1px #ccc solid;
+	}
+	a {
+		text-decoration: underline;
+		color: $link-color;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	ul,
+	ol {
+		@include rem((margin: 0 0 0 10px));
+
+		li {
+			margin: 5px 10px;
+		}
+		li li {
+			@include rem((font-size: ($font-size - 2px)));
+		}
+	}
+	h1, h2, h3, h4, h5, h6 {
+		@include rem((margin: 0 0 $line-height));
+		font-weight: 400;
+		font-family: $font-family-headlines;
+		line-height: 1;
+		letter-spacing: 2px;
+	}
+	h4 {
+		margin: 0 0 16px;
+	}
+	h5, h6 {
+		margin: 0 0 12px;
+	}
+	$headlines: (26px, 24px, 22px, 19px, 18px, 17px);
+	@for $i from 1 through length($headlines) {
+		h#{$i} {
+			@include rem((font-size: nth($headlines, $i)));
+		}
+	}
+	@include breakpoint-with-fallback(600px) {
+		$headlines: (32px, 28px, 24px, 21px, 19px, 18px);
+		@for $i from 1 through length($headlines) {
+			h#{$i} {
+				@include rem((font-size: nth($headlines, $i)));
+			}
+		}
+	}
+	pre {
+		font-family: "Courier New", Courier, $font-family;
+		display: block;
+		font-size: 1.2em;
+		margin: 2em 5em;
+		padding: 0.5em;
+		border: 1px #ccc solid;
+		background: #eee;
+	}
+	table {
+		@include rem((margin: 0 0 $line-height));
+		border-collapse: collapse;
+
+		td {
+			//border: 1px #999 solid;
+			padding: 5px;
+		}
+	}
+}
+
+.typography {
+	.left {
+		text-align: left;
+	}
+	.center {
+		text-align: center;
+	}
+	.right {
+		text-align: right;
+	}
+	img {
+		border: none;
+		max-width: 100%;
+		height: auto !important;
+		@include rem((margin: 0 0 $line-height));
+
+		&.right {
+			float: right;
+			@include rem((margin-left: $line-height));
+		}
+		&.left {
+			float: left;
+			@include rem((margin-right: $line-height));
+		}
+		&.leftAlone {
+			float: left;
+			margin-right: 100%;
+		}
+		&.rightAlone {
+			float: right;
+			margin-left: 100%;
+		}
+		&.center {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+	}
+}
+
+.typography .fixme {
+	background: #ff0000;
+	color: #fff;
+	text-decoration: underline;
+}
+
+form .Actions input.action, form button, a.button, p.button a, span.button {
+	@include button-reset;
+	font-family: $font-family-headlines;
+	display: inline-block;
+	background: $color-black;
+	color: $color-white !important;
+	//text-transform: uppercase;
+	font-weight: 700;
+	//margin: 0 0 $line-height;
+	padding: 10px 20px;
+	text-decoration: none;
+	@include border-radius(40px);
+
+	* {
+		color: #fff;
+	}
+}
+
+a.button-large, p.button-large a, span.button-large {
+	@include button-reset;
+	font-family: $font-family-headlines;
+	display: inline-block;
+	background: $color-black;
+	color: $color-white !important;
+	//text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.5em;
+	//margin: 0 0 $line-height;
+	padding: 20px 30px;
+	text-decoration: none;
+	@include border-radius(40px);
+}
+
+a.button-border, p.button-border a, span.button-border {
+	@include button-reset;
+	font-family: $font-family-headlines;
+	display: inline-block;
+	//background: $color-white;
+	color: $color-black !important;
+	border: 1px solid $color-black;
+	//text-transform: uppercase;
+	font-weight: 700;
+	//margin: 0 0 $line-height;
+	padding: 10px 20px;
+	text-decoration: none;
+	@include border-radius(40px);
+}
+
+//p a.button, p.button a {
+//	margin: 0;
+//}

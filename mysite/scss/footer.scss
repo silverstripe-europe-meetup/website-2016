@@ -1,0 +1,64 @@
+@import "config";
+
+footer {
+	background: $color-blue-dark;
+	padding: ($section-gutter / 2);
+	color: #FFF;
+
+	a {
+		color: $color-pink;
+		text-decoration: none;
+
+		img {
+			border: 0;
+		}
+	}
+	ul {
+		list-style: square;
+	}
+	.footer-top {
+		padding: 10px;
+		line-height: 50px;
+		border-bottom: 1px solid $color-blue;
+
+		.left-column {
+			img {
+				border: 0;
+				height: 50px;
+			}
+		}
+		.right-column {
+			text-align: right;
+			display: none;
+
+			//.social {
+			//	float: right;
+			//
+			//	a {
+			//		padding: 0 0 0 15px;
+			//		color: #FFF;
+			//	}
+			//}
+		}
+	}
+	.footer-main {
+		padding: 10px;
+		@include rem((font-size: 16px));
+	}
+	.left-column,
+	.right-column {
+		@include span(full);
+		padding: ($section-gutter / 2) 0;
+	}
+	@include breakpoint-with-fallback($breakpoint-medium) {
+		.left-column {
+			@include span(6);
+		}
+		.right-column {
+			@include span(6 last);
+		}
+		.footer-top .right-column {
+			display: block;
+		}
+	}
+}

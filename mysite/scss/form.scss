@@ -1,0 +1,104 @@
+@import "config";
+
+form {
+	@include susy-clearfix;
+
+	div.field {
+		margin: 0 0 $line-height;
+	}
+	fieldset {
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+	input.text, textarea, select, .readonly-input span.readonly {
+		@include appearance(none);
+		font-family: $font-family;
+		font-size: $font-size;
+		max-width: 100%;
+		width: 100%;
+	}
+	input.text, textarea, select, .field.readonly span.readonly {
+		//border: 1px solid $color-grey-medium;
+		//background: $color;
+		@include border-radius(0);
+		line-height: 28px;
+		height: 48px;
+		padding: 10px 12px;
+		text-align: left;
+		color: #000;
+		border: 1px solid;
+		background: #fff;
+	}
+	select {
+		//@include appearance(none);
+		display: block;
+		//height: 48px;
+	}
+	//input.action, button {
+	//	float: right;
+	//	margin-bottom: 0;
+	//}
+	textarea {
+		resize: vertical;
+		height: auto;
+		line-height: 1.2;
+	}
+	.middleColumn {
+		display: block;
+		margin: 0 0 5px;
+
+		.message {
+			margin: 0;
+		}
+	}
+	label {
+		display: block;
+		margin: 0 0 5px;
+		//color: #092a67;
+		//margin: 0 0 5px;
+		//font-size: 18px;
+	}
+	.Actions {
+		text-align: left;
+	}
+	.field.checkbox {
+		input.checkbox {
+			display: inline;
+		}
+		label {
+			display: inline;
+		}
+	}
+}
+
+form .Actions input, form button, a.button {
+	&.loading {
+		padding-left: 35px;
+		background-position: 10px center;
+		background-repeat: no-repeat;
+		background-image: image-url('loading-button.gif');
+	}
+}
+
+form .message, .message {
+	margin: 0 0 10px;
+	padding: 12px;
+	color: #00529B;
+	background-color: #BDE5F8;
+	display: block;
+
+	&.required, &.error, &.bad {
+		color: #D8000C;
+		background-color: #FFBABA;
+	}
+	&.warning {
+		color: #9F6000;
+		background-color: #FEEFB3;
+	}
+	&.good {
+		color: #4F8A10;
+		background-color: #DFF2BF;
+	}
+}
+

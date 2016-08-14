@@ -1,0 +1,81 @@
+// this file should be included into all other files, here you can add variables and mixins
+
+$module: "mysite";
+
+@import "../thirdparty/composer-bower/compass-mixins/lib/compass";
+@import "includes/mixins";
+@import "includes/rem";
+@import "includes/compass-polyfill";
+@import "../thirdparty/composer-bower/sassy-maps/sass/sassy-maps";
+@import "../thirdparty/composer-bower/compass-breakpoint/stylesheets/breakpoint";
+@import "../thirdparty/composer-bower/susy/sass/susy";
+
+$color-white: #fff;
+//$color-black: #000;
+$color-pink: #da1d52;
+$color-black: #231f20;
+$color-yellow: #fff200;
+$color-blue-light: #26B7E6;
+$color-blue: #015790;
+$color-blue-dark: #142136;
+$color-grey: #F0F0F0;
+//$color-grey-light: #E0E0E0;
+//$color-grey-dark: #232730;
+//$color-green: #00A881;
+//$color-pink: #F1666D;
+
+$text-color: $color-black;
+$link-color: $text-color;
+$font-family: SourceSansPro, Helvetica, Arial, sans-serif;
+$font-family-headlines: $font-family;
+$font-size: 18px;
+$rem-base: 16px;
+$line-height: 22px;
+
+$rem-enabled: true;
+$ie-8-support: false;
+
+$breakpoint-small: 400px;
+$breakpoint-medium: 600px;
+
+$section-gutter: 40px;
+$section-gutter-large: $section-gutter * 2;
+$container-width: 980px;
+
+@include breakpoint-set('no query fallbacks', true);
+
+$breakpoint-fallback-class: '.no-mediaqueries';
+
+@mixin breakpoint-with-fallback($breakpoint) {
+	@include breakpoint($breakpoint, $breakpoint-fallback-class) {
+		@content;
+	}
+}
+
+$total-columns: 12;
+
+$susy: (
+	math: fluid,
+	output: float,
+	gutter-position: after,
+	container: $container-width,
+	container-position: center,
+	columns: $total-columns,
+	gutters: .25,
+	column-width: false,
+	global-box-sizing: border-box,
+	last-flow: to,
+	//debug: (
+	//		image: show,
+	//		color: rgba(#66f, .25),
+	//		output: overlay,
+	//		toggle: top right,
+	//),
+	use-custom: (
+		background-image: true,
+		background-options: false,
+		box-sizing: true,
+		clearfix: false,
+		rem: true,
+	)
+);

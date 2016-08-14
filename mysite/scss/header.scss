@@ -1,0 +1,172 @@
+@import "config";
+
+.header-push {
+	//height: 70px;
+	height: 90px;
+}
+
+header {
+	background: $color-blue-dark;
+	position: relative;
+	z-index: 450;
+	//padding: 10px;
+	padding: 20px 10px;
+	@include susy-clearfix;
+
+	&.pink-header {
+		background: $color-pink;
+	}
+	&.has-header-image {
+		position: absolute;
+		right: 0;
+		left: 0;
+		top: 0;
+
+		@include breakpoint-with-fallback(700px) {
+			background-color: transparent;
+			background-color: rgba($color-blue-dark, 0);
+			@include transition(background-color 500ms ease, padding 500ms ease);
+
+			&.scrolled {
+				background-color: $color-blue-dark;
+				padding: 10px;
+
+				&.pink-header {
+					background-color: $color-pink;
+				}
+			}
+		}
+	}
+
+	.container {
+		.container-inner {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+	a {
+		color: #FFF;
+		text-decoration: none;
+	}
+	.logo {
+		display: block;
+		float: left;
+		width: 176px;
+		h1 {
+			margin: 0;
+			padding: 0;
+			display: block;
+			@include hide-text(right);
+			height: 50px;
+			background: left center no-repeat image-url('logo.png');
+			@include background-size(contain);
+		}
+	}
+	&.pink-header .logo h1 {
+		background-image: image-url('logo-white.png');
+	}
+	.toggle-nav {
+		@include button-reset;
+		width: 40px;
+		height: 40px;
+		margin: 5px 10px 0 0;
+		cursor: pointer;
+		float: right;
+
+		span {
+			vertical-align: top;
+			position: relative;
+			margin: 0 6px;
+
+			&, &:before, &:after {
+				display: block;
+				background: #FFF;
+				height: 3px;
+				@include border-radius(3px);
+			}
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+			}
+			&:before {
+				top: -8px;
+			}
+			&:after {
+				bottom: -8px;
+			}
+		}
+
+	}
+	nav {
+		ul {
+			display: none;
+			clear: both;
+			padding: 8px 0 0;
+			list-style: none;
+			margin: 0;
+			@include susy-clearfix;
+
+			li {
+				display: block;
+				text-align: center;
+				margin: 0;
+				padding: 10px;
+
+				a {
+					//color: $color-pink;
+				}
+			}
+		}
+	}
+	@include breakpoint-with-fallback(700px) {
+		position: fixed !important;
+		right: 0;
+		left: 0;
+		top: 0;
+
+		.toggle-nav {
+			display: none;
+		}
+		nav ul {
+			display: block !important;
+			text-align: right;
+			margin: 0 0 0 190px;
+			clear: none;
+
+			li {
+				display: inline-block;
+				padding: 5px;
+			}
+		}
+	}
+}
+
+//.page-container {
+//	@include breakpoint-with-fallback(700px) {
+//		.header-push {
+//			height: 60px;
+//		}
+//		header {
+//			position: fixed;
+//			right: 0;
+//			left: 0;
+//			top: 0;
+//			.toggle-nav {
+//				display: none;
+//			}
+//			ul.navigation {
+//				display: block !important;
+//				text-align: right;
+//				margin: 0 0 0 190px;
+//				clear: none;
+//
+//				li {
+//					display: inline-block;
+//					padding: 5px;
+//				}
+//			}
+//		}
+//	}
+//}

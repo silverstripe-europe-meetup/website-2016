@@ -1,0 +1,27 @@
+{
+	"name": "zauberfisch/silverstripe-boilerplate",
+	"description": "Boilerplate template to quickly kick off a new SilverStripe project",
+	"require": {
+		"php": ">=5.4",
+		"silverstripe/cms": "^3.4",
+		"silverstripe/framework": "^3.4",
+		"silverstripe/googlesitemaps": "*",
+		"lrc/silverstripe-link-field": "*",
+		"zauberfisch/silverstripe-better-form-validator": "*",
+		"zauberfisch/silverstripe-better-requirements": "*",
+		"zauberfisch/silverstripe-better-image": "*",
+		"zauberfisch/silverstripe-better-i18n": "*",
+		"unclecheese/betterbuttons": "*",
+		"unclecheese/display-logic": "*",
+		"heyday/silverstripe-colorpalette": "*",
+		"silverstripe-australia/gridfieldextensions": "*",
+		"bummzack/sortablefile": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*",
+		"axyr/silverstripe-ideannotator": "*",
+		"lekoala/silverstripe-debugbar": "dev-master"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
